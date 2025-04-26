@@ -1,0 +1,24 @@
+.App {
+  text-align: center;
+  margin-top: 50px;
+  font-family: sans-serif;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+input {
+  margin: 5px;
+  padding: 8px;
+}
+
+button {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
