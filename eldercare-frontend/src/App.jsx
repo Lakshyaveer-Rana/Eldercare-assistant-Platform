@@ -1,29 +1,44 @@
 // src/App.jsx
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
+
+// Import Pages
 import Home from "./pages/Home";
 import Elderly from "./pages/Elderly";
 import Family from "./pages/Family";
-import Reminders from "./pages/Reminders"; // 👈 Import yahan hona chahiye
-import Appointments from './pages/Appointments';
+import Reminders from "./pages/Reminders";
+import Appointments from "./pages/Appointments";
 import Routine from "./pages/Routine";
-import HospitalData from "./pages/HospitalData";
+
+// Import Components
+import Sidebar from "./components/Sidebar";
+import CursorTrail from "./components/CursorTrail"; // <--- IMPORT THE NEW TRAIL
+
+// Import CSS
+import "./App.css";
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-blue-100">
-        <Navbar />
-        <Routes>
-        <Route path="/appointments" element={<Appointments />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/elderly" element={<Elderly />} />
-          <Route path="/family" element={<Family />} />
-          <Route path="/reminders" element={<Reminders />} /> {/* ✅ Correctly placed */}
-          <Route path="/routine" element={<Routine />} />
-          <Route path="/hospital-data" element={<HospitalData />} />
-        </Routes>
+      <div className="flex bg-transparent min-h-screen relative">
+        
+        {/* 1. Add the Cursor Trail here (It overlays everything) */}
+        <CursorTrail />
+        
+        {/* The Sidebar (Fixed Left) */}
+        <Sidebar />
+
+        {/* Main Content Area (Pushed Right) */}
+        <div className="flex-1 md:ml-64 transition-all">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/elderly" element={<Elderly />} />
+            <Route path="/family" element={<Family />} />
+            <Route path="/reminders" element={<Reminders />} />
+            <Route path="/appointments" element={<Appointments />} />
+            <Route path="/routine" element={<Routine />} />
+          </Routes>
+        </div>
       </div>
     </Router>
   );

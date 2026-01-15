@@ -1,24 +1,79 @@
-.App {
-  text-align: center;
-  margin-top: 50px;
-  font-family: sans-serif;
+/* src/App.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --- THE GEOMETRIC TECH BACKGROUND --- */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: #1e293b;
+  background-color: #ffffff;
+  
+  /* 1. The Magic Triangle Grid */
+  background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15 10L18 16H12L15 10Z' fill='%2364748b' fill-opacity='0.2'/%3E%3C/svg%3E");
+  
+  /* 2. Grid Size */
+  background-size: 30px 30px;
+  
+  /* 3. The Animation: FASTER SPEED HERE (Changed 20s -> 8s) */
+  animation: techGridScroll 4s linear infinite;
+  
+  min-height: 100vh;
 }
 
-form {
-  margin-bottom: 20px;
+/* Defines the movement */
+@keyframes techGridScroll {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 30px 30px;
+  }
 }
 
-input {
-  margin: 5px;
-  padding: 8px;
+/* --- KEEP THE REST THE SAME --- */
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
-button {
-  padding: 8px 16px;
-  cursor: pointer;
+.glass-sidebar {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-right: 1px solid rgba(226, 232, 240, 0.8);
 }
 
-ul {
-  list-style: none;
-  padding: 0;
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 5px; border: 2px solid #ffffff; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+.App { text-align: left; }
+
+/* src/App.css */
+
+/* ... existing code ... */
+
+/* src/App.css */
+
+/* ... existing code ... */
+
+/* HEALTH PARTICLE ANIMATION */
+@keyframes floatAndFade {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.5); /* Start small */
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -100%) scale(1.2); /* Grow and move up */
+  }
+  100% {
+    opacity: 0; /* Fade out completely */
+    transform: translate(-50%, -200%) scale(0.8); /* Float further up */
+  }
 }
